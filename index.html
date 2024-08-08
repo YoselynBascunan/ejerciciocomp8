@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú Interactivo</title>
+</head>
+<body>
+  <script>
+    function mostrarMenu() {
+      let opcion = 0;
+
+      while (opcion !== 5) {
+        
+        opcion = parseInt(prompt(`Seleccione una opción:
+        1. Opción 1: Consulta de tiempo
+        2. Opción 2: Conversión de monedas (USD a CLP)
+        3. Opción 3: Generar número aleatorio
+        4. Opción 4: Frase motivacional
+        5. Salir`));
+
+        
+        switch (opcion) {
+          case 1:
+            consultarTiempo();
+            break;
+          case 2:
+            conversionMonedas();
+            break;
+          case 3:
+            generarNumeroAleatorio();
+            break;
+          case 4:
+            fraseMotivacional();
+            break;
+          case 5:
+            alert("Gracias por usar nuestro menú. ¡Hasta luego!");
+            break;
+          default:
+            alert("Opción no válida. Por favor, intente de nuevo.");
+            break;
+        }
+      }
+    }
+
+    function consultarTiempo() {
+      
+      alert("El tiempo hoy es soleado con 25°C.");
+    }
+
+    function conversionMonedas() {
+      
+      const dolares = parseFloat(prompt("Ingrese la cantidad en dólares (USD):"));
+      const tasaCambio = 820; 
+      const pesosChilenos = dolares * tasaCambio;
+      alert(`${dolares} USD equivalen a ${pesosChilenos.toFixed(2)} CLP.`);
+    }
+
+    function generarNumeroAleatorio() {
+      
+      const numero = Math.floor(Math.random() * 100) + 1;
+      alert(`El número aleatorio generado es: ${numero}`);
+    }
+
+    function fraseMotivacional() {
+      
+      const frases = [
+        "El éxito no es el final, el fracaso no es fatal: es el coraje de continuar lo que cuenta.",
+        "La única forma de hacer un gran trabajo es amar lo que haces.",
+        "El único límite para nuestra realización del mañana son nuestras dudas de hoy.",
+        "El futuro pertenece a quienes creen en la belleza de sus sueños."
+      ];
+      const indice = Math.floor(Math.random() * frases.length);
+      alert(frases[indice]);
+    }
+
+    
+    mostrarMenu();
+  </script>
+</body>
+</html>
